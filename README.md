@@ -205,5 +205,3 @@ https://proyecto-6-udd.onrender.com/
 Este proyecto está distribuido bajo la licencia MIT.
 
 
-## Licencia
-Este proyecto se distribuye bajo la licencia MIT.

@@ -1,43 +1,186 @@
 
-# Backend Aplicacion UDD
+# 🛠️ Backend Aplicacion con Node.js and Express
 
-## Resumen del Proyecto
+## 📖 Resumen del Proyecto
 
-Proyecto desplegado en Render (https://proyecto-6-udd.onrender.com).
+Este proyecto es una aplicación Backend construida con **Node.js** y **Express**, que ofrece:
 
-Este proyecto es una aplicación Backend construida con Node.js y Express que brinda:
-
-### 1. Autenticación de Usuarios
+### 🔒 Autenticación de Usuarios
 - **Registro de nuevos usuarios**: `/api/user/register`
-- **Inicio de sesión**: `/api/user/login` y generación de un token JWT para mantener la sesión.
+- **Inicio de sesión**: `/api/user/login` con generación de un token JWT.
 - **Verificación del token**: `/api/user/verifytoken`
 - **Actualización de datos del usuario**: `/api/user/update`
 
-### 2. CRUD de Productos
-- **Crear**: `/api/product/create`
-- **Leer todos**: `/api/product/readall`
-- **Leer uno**: `/api/product/readone/:id`
-- **Actualizar**: `/api/product/update/:id`
-- **Eliminar**: `/api/product/delete/:id`
+### 📦 CRUD de Productos
+- **Crear un producto**: `/api/product/create`
+- **Leer todos los productos**: `/api/product/readall`
+- **Leer un producto por ID**: `/api/product/readone/:id`
+- **Actualizar un producto por ID**: `/api/product/update/:id`
+- **Eliminar un producto por ID**: `/api/product/delete/:id`
 
-### 3. Tecnologías principales
-- **Node.js + Express**: Para la configuración del servidor y creación de endpoints.
-- **Mongoose**: Para la conexión con MongoDB Atlas y el mapeo de datos a través de modelos.
-- **JWT (jsonwebtoken)**: Para la autenticación y autorización de usuarios.
-- **bcrypt**: Para el hashing seguro de contraseñas.
-- **dotenv**: Para la gestión de variables de entorno.
+### 🧰 Tecnologías Principales
+- **Node.js + Express**: Para la configuración del servidor y endpoints.
+- **Mongoose**: Para la conexión con **MongoDB Atlas**.
+- **JWT**: Autenticación y autorización de usuarios.
+- **bcrypt**: Hashing seguro de contraseñas.
+- **dotenv**: Gestión de variables de entorno.
 
-### 4. Estructura
-- `models/`: Contiene los esquemas User y Product.
-- `controllers/`: Lógica para cada operación (registro, login, CRUD de productos, etc.).
-- `routes/`: Define los endpoints y vincula los controladores.
-- `server.js`: Punto de entrada principal para configurar la app (Express, CORS, conexión a la base de datos).
+### 📂 Estructura del Proyecto
+- `models/`: Esquemas `User` y `Product`.
+- `controllers/`: Lógica para registro, login, y CRUD.
+- `routes/`: Endpoints conectados a controladores.
+- `server.js`: Configuración principal de la app.
 
-### 5. Uso
-- Se puede consumir con herramientas como Postman o Insomnia, enviando requests a los endpoints descritos.
-- Ideal para proyectos que requieran un backend con gestión de usuarios y un CRUD básico de cualquier entidad (en este caso, Productos).
+---
 
-## Cómo empezar
+## 🚀 Pruebas en Render
+La aplicación está desplegada en **Render** y puedes probar los endpoints directamente:
+
+### 🌐 Base URL
+```bash
+https://proyecto-6-udd.onrender.com/
+```
+
+---
+
+### 🔍 Endpoints y Cómo Probarlos
+
+#### 1️⃣ **Ruta raíz (opcional)**  
+- **Método**: `GET`  
+- **URL**: [https://proyecto-6-udd.onrender.com/](https://proyecto-6-udd.onrender.com/)  
+
+---
+
+#### 2️⃣ **Registro de Usuario**
+- **Endpoint**: `/api/user/register`  
+- **Método**: `POST`  
+- **URL**: [https://proyecto-6-udd.onrender.com/api/user/register](https://proyecto-6-udd.onrender.com/api/user/register)  
+- **Body (JSON)**:
+  ```json
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "securepassword"
+  }
+  ```
+
+---
+
+#### 3️⃣ **Iniciar Sesión**
+- **Endpoint**: `/api/user/login`  
+- **Método**: `POST`  
+- **URL**: [https://proyecto-6-udd.onrender.com/api/user/login](https://proyecto-6-udd.onrender.com/api/user/login)  
+- **Body (JSON)**:
+  ```json
+  {
+    "email": "john@example.com",
+    "password": "securepassword"
+  }
+  ```
+
+---
+
+#### 4️⃣ **Verificar Token (Mantener Sesión)**
+- **Endpoint**: `/api/user/verifytoken`  
+- **Método**: `GET`  
+- **URL**: [https://proyecto-6-udd.onrender.com/api/user/verifytoken](https://proyecto-6-udd.onrender.com/api/user/verifytoken)  
+- **Headers**:
+  ```
+  Authorization: Bearer <token>
+  ```
+
+---
+
+#### 5️⃣ **Actualizar Usuario**
+- **Endpoint**: `/api/user/update`  
+- **Método**: `PUT`  
+- **URL**: [https://proyecto-6-udd.onrender.com/api/user/update](https://proyecto-6-udd.onrender.com/api/user/update)  
+- **Headers**:
+  ```
+  Authorization: Bearer <token>
+  ```
+- **Body (JSON)**:
+  ```json
+  {
+    "name": "John Updated",
+    "email": "updated@example.com"
+  }
+  ```
+
+---
+
+#### 6️⃣ **Crear un Producto**
+- **Endpoint**: `/api/product/create`  
+- **Método**: `POST`  
+- **URL**: [https://proyecto-6-udd.onrender.com/api/product/create](https://proyecto-6-udd.onrender.com/api/product/create)  
+- **Headers**:
+  ```
+  Authorization: Bearer <token>
+  ```
+- **Body (JSON)**:
+  ```json
+  {
+    "name": "Producto de prueba",
+    "price": 50,
+    "description": "Descripción del producto"
+  }
+  ```
+
+---
+
+#### 7️⃣ **Leer todos los Productos**
+- **Endpoint**: `/api/product/readall`  
+- **Método**: `GET`  
+- **URL**: [https://proyecto-6-udd.onrender.com/api/product/readall](https://proyecto-6-udd.onrender.com/api/product/readall)  
+
+---
+
+#### 8️⃣ **Leer un Producto específico**
+- **Endpoint**: `/api/product/readone/:id`  
+- **Método**: `GET`  
+- **URL**: 
+  ```
+  https://proyecto-6-udd.onrender.com/api/product/readone/EL_ID_DEL_PRODUCTO
+  ```
+
+---
+
+#### 9️⃣ **Actualizar un Producto**
+- **Endpoint**: `/api/product/update/:id`  
+- **Método**: `PUT`  
+- **URL**: 
+  ```
+  https://proyecto-6-udd.onrender.com/api/product/update/EL_ID_DEL_PRODUCTO
+  ```
+- **Headers**:
+  ```
+  Authorization: Bearer <token>
+  ```
+- **Body (JSON)**:
+  ```json
+  {
+    "name": "Producto Actualizado",
+    "price": 60
+  }
+  ```
+
+---
+
+#### 🔟 **Eliminar un Producto**
+- **Endpoint**: `/api/product/delete/:id`  
+- **Método**: `DELETE`  
+- **URL**: 
+  ```
+  https://proyecto-6-udd.onrender.com/api/product/delete/EL_ID_DEL_PRODUCTO
+  ```
+- **Headers**:
+  ```
+  Authorization: Bearer <token>
+  ```
+
+---
+
+## 🛠️ Cómo Empezar Localmente
 1. Clona el repositorio:
    ```
    git clone https://github.com/Davidbustosr/Proyecto-6-UDD.git
@@ -46,7 +189,7 @@ Este proyecto es una aplicación Backend construida con Node.js y Express que br
    ```
    npm install
    ```
-3. Configura las variables de entorno en un archivo `.env`:
+3. Configura las variables de entorno en `.env`:
    ```
    MONGO_URI=tu_uri_de_mongodb
    JWT_SECRET=tu_secreto_jwt
@@ -55,7 +198,12 @@ Este proyecto es una aplicación Backend construida con Node.js y Express que br
    ```
    npm start
    ```
-5. Accede a los endpoints mediante herramientas como Postman.
+
+---
+
+## 📜 Licencia
+Este proyecto está distribuido bajo la licencia MIT.
+
 
 ## Licencia
 Este proyecto se distribuye bajo la licencia MIT.
